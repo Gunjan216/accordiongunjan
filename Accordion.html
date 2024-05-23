@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: pink;
+        }
+        .accordion {
+            width: 50vw;
+            text-align: left;
+            background-color: aliceblue;
+        }
+        .accordion-tab label {
+            background-color: rgb(113, 113, 206);
+            line-height: 10vh;
+            font-size: 1vw;
+            position: relative;
+            display: block;
+            justify-content: center;
+            padding: 0.2vh;
+            cursor: pointer;
+            border-top: 0.5vh solid skyblue;
+        }
+        .accordion-tab label::after {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><line x1="12" y1="5" x2="12" y2="19" stroke="black" stroke-width="3"/><line x1="5" y1="12" x2="19" y2="12" stroke="black" stroke-width="3"/></svg>');
+            position: absolute;
+            top: 6vh;
+            right: 2vh;
+            transform: translateY(-50%);
+        }
+        .accordion-tab .accordion-toggle {
+            display: none;
+        }
+        .accordion-tab .accordion-toggle:checked ~ label::after {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><line x1="0"  x2="50vh" stroke="black" stroke-width="5"/></svg>');
+            position: absolute;
+            top: 8vh;
+            right: 1vh;
+            
+        }
+        .accordion-tab .context {
+            max-height: 0;
+            transition:  2s all ease-in-out;
+            overflow: hidden;
+        }
+        .accordion-tab .accordion-toggle:checked ~ .context {
+            max-height: 100vh;
+        }
+        .accordion-tab .context p {
+            padding: 2vh;
+            font-size: 2vh;
+        }
+    </style>
+</head>
+<body>
+   <div class="main">
+        <div class="accordion">
+            <div class="accordion-tab">
+                <input type="radio" name="toggle" class="accordion-toggle" id="toggle1">
+                <label for="toggle1">What is an accordion?</label>
+                <div class="context">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo velit suscipit mollitia! Delectus, illo?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, dolorum, voluptatum et odio dolorem blanditiis quasi cum qui doloribus perferendis facilis autem quis porro aliquid quo id dignissimos magnam in.</p>
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="radio" name="toggle" class="accordion-toggle" id="toggle2">
+                <label for="toggle2">How to create an accordion?</label>
+                <div class="context">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo velit suscipit mollitia! Delectus, illo?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, dolorum, voluptatum et odio dolorem blanditiis quasi cum qui doloribus perferendis facilis autem quis porro aliquid quo id dignissimos magnam in.</p>
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="radio" name="toggle" class="accordion-toggle" id="toggle3">
+                <label for="toggle3">Only for HTML & CSS?</label>
+                <div class="context">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo velit suscipit mollitia! Delectus, illo?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, dolorum, voluptatum et odio dolorem blanditiis quasi cum qui doloribus perferendis facilis autem quis porro aliquid quo id dignissimos magnam in.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
